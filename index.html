@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Srinidhi – Full Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f7fb;--surface:#fff;--ink:#12162b;--muted:#566079;--line:#dde1ee;
+  --accent:#2f43ff;--on-accent:#fff;--mint:#0f9d7a;--sun:#ffd23f;--glow:rgba(47,67,255,.13);
+  --head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c1022;--surface:#141a33;--ink:#eef0fb;--muted:#9aa3c4;--line:#252c4d;--accent:#8a97ff;--on-accent:#0c1022;--mint:#3ddcb2;--glow:rgba(138,151,255,.16);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0c1022;--surface:#141a33;--ink:#eef0fb;--muted:#9aa3c4;--line:#252c4d;--accent:#8a97ff;--on-accent:#0c1022;--mint:#3ddcb2;--glow:rgba(138,151,255,.16);color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1080px,100% - 40px);margin-inline:auto}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font:800 20px var(--head);text-decoration:none;letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+nav{display:flex;gap:22px;align-items:center;font-size:15px;font-weight:500}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.tbtn{border:1px solid var(--line);background:var(--surface);color:var(--ink);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:17px}
+@media(max-width:760px){nav a:not(.keep){display:none}}
+
+.hero{position:relative;padding:72px 0 56px;overflow:hidden}
+.hero::before{content:"";position:absolute;width:640px;height:640px;right:-220px;top:-240px;background:radial-gradient(circle,var(--glow),transparent 65%);pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:center}
+@media(max-width:880px){.hero .wrap{grid-template-columns:1fr}.avatar{order:-1;width:170px!important;height:170px!important}}
+.wave{display:inline-block;padding:8px 16px;border:1px solid var(--line);border-radius:99px;background:var(--surface);font-weight:500;font-size:15px}
+h1{font:800 clamp(46px,8.6vw,104px)/.95 var(--head);letter-spacing:-.045em;margin:24px 0 18px}
+h1 em{font-style:normal;color:var(--accent)}
+.turn{font:700 clamp(22px,3.4vw,34px)/1.2 var(--head);letter-spacing:-.02em;margin:0 0 22px;min-height:1.3em}
+.turn #word{display:inline-block;padding:0 12px;border-radius:10px;background:var(--sun);color:#12162b}
+.lede{max-width:33em;color:var(--muted);font-size:clamp(17px,2vw,20px);margin:0 0 30px}
+.lede b{color:var(--ink);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:12px;font:600 16px var(--body);text-decoration:none;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.avatar{width:300px;height:300px;border-radius:38% 62% 55% 45%/48% 42% 58% 52%;background:linear-gradient(135deg,var(--accent),var(--mint));display:grid;place-items:center;font:800 108px var(--head);letter-spacing:-.05em;color:var(--on-accent);justify-self:center;animation:morph 9s ease-in-out infinite}
+@keyframes morph{50%{border-radius:55% 45% 40% 60%/55% 58% 42% 45%}}
+
+.band{margin-top:56px;border-block:1px solid var(--line);background:var(--surface);overflow:hidden;white-space:nowrap}
+.band div{display:inline-block;padding:18px 0;font:800 clamp(28px,5vw,48px) var(--head);letter-spacing:-.03em;animation:slide 26s linear infinite}
+.band span{margin:0 22px}.band i{font-style:normal;color:var(--accent)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+section{padding:84px 0 0}
+.tag{color:var(--accent);font-weight:600;font-size:15px;margin:0 0 10px}
+h2{font:800 clamp(32px,5vw,54px)/1.05 var(--head);letter-spacing:-.035em;margin:0 0 18px;max-width:16em}
+.sub{color:var(--muted);max-width:36em;margin:0 0 36px}
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:44px}
+@media(max-width:860px){.about{grid-template-columns:1fr;gap:28px}}
+.about p{margin:0 0 16px}
+.ranks{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:start}
+.rank{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px}
+.rank strong{display:block;font:800 44px/1 var(--head);letter-spacing:-.03em;color:var(--accent)}
+.rank span{display:block;margin-top:8px;font-size:14.5px;color:var(--muted);line-height:1.4}
+.rank.wide{grid-column:1/-1}
+
+.cards{display:grid;gap:16px}
+details.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:border-color .2s}
+details.card[open]{border-color:var(--accent)}
+summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:26px 28px}
+summary::-webkit-details-marker{display:none}
+summary h3{font:700 clamp(24px,3vw,32px)/1.15 var(--head);letter-spacing:-.025em;margin:0 0 4px}
+summary p{margin:0;color:var(--muted)}
+.plus{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;font-size:24px;line-height:1;transition:transform .25s,background .25s}
+details[open] .plus{transform:rotate(45deg);background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.body{padding:0 28px 28px;display:grid;grid-template-columns:1fr 200px;gap:28px}
+@media(max-width:700px){.body{grid-template-columns:1fr}.big{order:-1;text-align:left!important}}
+ul{margin:0;padding-left:20px}li{margin:8px 0}li::marker{color:var(--accent)}
+.big{text-align:right}
+.big strong{display:block;font:800 clamp(48px,6vw,66px)/1 var(--head);letter-spacing:-.04em;color:var(--mint)}
+.big span{display:block;font-size:14.5px;color:var(--muted);line-height:1.35;margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{font-size:14px;font-weight:500;padding:5px 13px;border-radius:99px;background:var(--glow);color:var(--accent)}
+
+.tiers{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:700px){.tiers{grid-template-columns:1fr}}
+.tier{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px}
+.tier small{display:inline-block;font-weight:600;font-size:13.5px;padding:3px 12px;border-radius:99px;background:var(--sun);color:#12162b;margin-bottom:12px}
+.tier h3{font:700 22px var(--head);letter-spacing:-.02em;margin:0 0 6px}
+.tier p{margin:0 0 4px;color:var(--muted);font-size:15.5px}
+.tier .chip{background:transparent;border:1px solid var(--line);color:var(--ink)}
+
+.path{border-left:3px solid var(--line);margin-left:8px}
+.step{position:relative;padding:0 0 34px 30px}
+.step::before{content:"";position:absolute;left:-10px;top:6px;width:17px;height:17px;border-radius:50%;background:var(--accent);border:4px solid var(--bg)}
+.step h3{font:700 22px/1.25 var(--head);letter-spacing:-.02em;margin:0}
+.step .when{color:var(--muted);font-size:15px;margin:2px 0 6px}
+.step p{margin:0;max-width:40em}
+
+.contact{margin-top:84px;padding:68px 0 44px;background:var(--ink);color:var(--bg)}
+.contact h2{color:var(--bg)}
+.contact .sub{color:var(--bg);opacity:.75}
+.contact .tag{color:var(--sun)}
+.contact .btn{border-color:var(--bg);color:var(--bg)}
+.contact .btn.pri{background:var(--sun);border-color:var(--sun);color:#12162b}
+.foot{margin-top:44px;font-size:14px;opacity:.6}
+#toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);transform:translate(-50%,30px);opacity:0;background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:12px;font-weight:500;transition:.25s;z-index:40;pointer-events:none}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="#top">Srinidhi<span>.</span></a>
+  <nav aria-label="Sections">
+    <a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#journey">Journey</a>
+    <a class="keep" href="#contact">Connect</a>
+    <button class="tbtn" id="theme" aria-label="Switch light or dark theme">◐</button>
+  </nav>
+</div></header>
+
+<main id="top">
+<div class="hero"><div class="wrap">
+  <div>
+    <span class="wave">👋 Hey, nice to meet you</span>
+    <h1>I’m <em>Srinidhi</em></h1>
+    <p class="turn">I turn ideas into <span id="word">products</span></p>
+    <p class="lede">A <b>full-stack developer</b> who loves putting AI to work inside real apps. I just graduated in Information Technology from Vasavi College of Engineering with a 9.44 GPA, and I’m ready for my first full-time role.</p>
+    <div class="cta">
+      <a class="btn pri" href="#projects">See what I’ve built</a>
+      <a class="btn" href="https://github.com/abushisrinidhi11" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="#contact">Say hi</a>
+    </div>
+  </div>
+  <div class="avatar" aria-hidden="true">AS</div>
+</div>
+<div class="band" aria-hidden="true"><div><span>Think</span><i>✦</i><span>Build</span><i>✦</i><span>Debug</span><i>✦</i><span>Ship</span><i>✦</i><span>Think</span><i>✦</i><span>Build</span><i>✦</i><span>Debug</span><i>✦</i><span>Ship</span><i>✦</i></div></div>
+</div>
+
+<section id="about"><div class="wrap">
+  <p class="tag">[01] About me</p>
+  <h2>I build the whole thing, and I make it smart.</h2>
+  <div class="about">
+    <div>
+      <p>From the React screen you tap to the Node.js API behind it, I enjoy owning a feature from start to finish. My favourite problems are the ones where software has to make a call: spotting a product at a checkout counter, flagging a student who might drop out, or recommending the right car to a traveller.</p>
+      <p>I spent six months as a full-stack intern at Zapcom Solutions, shipping real features on a live car rental platform. Outside work, I enter hackathons, and I’ve reached national-level finals.</p>
+      <p>I’m looking for a team where I can keep learning fast and take ownership early.</p>
+    </div>
+    <div class="ranks">
+      <div class="rank"><strong>3rd</strong><span>in Telangana State, Inter year 1 (465/470 in MPC)</span></div>
+      <div class="rank"><strong>4th</strong><span>in Telangana State, Inter year 2 (991/1000 in MPC)</span></div>
+      <div class="rank wide"><strong>9.44 / 10</strong><span>GPA in B.Tech Information Technology</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <p class="tag">[02] Featured projects</p>
+  <h2>Things I’ve built</h2>
+  <p class="sub">Tap any card to open it and see what I made and how.</p>
+  <div class="cards">
+    <details class="card" open>
+      <summary><div><h3>RideAway</h3><p>AI-powered peer-to-peer car rental · Zapcom Solutions</p></div><span class="plus">+</span></summary>
+      <div class="body"><div>
+        <ul>
+          <li>Built React frontend components and RESTful APIs in Node.js and Express, using MVC architecture.</li>
+          <li>Added OpenAI-powered search and recommendations, with JWT-based role authentication.</li>
+          <li>Shipped real-time features with Socket.IO and payments through Razorpay.</li>
+        </ul>
+        <div class="chips"><span class="chip">React</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">OpenAI API</span><span class="chip">Socket.IO</span><span class="chip">Razorpay</span></div>
+      </div><div class="big"><strong>6 mo</strong><span>shipping on a team, Jan to Jul 2026</span></div></div>
+    </details>
+    <details class="card">
+      <summary><div><h3>NexCart</h3><p>Automated checkout that sees what you buy</p></div><span class="plus">+</span></summary>
+      <div class="body"><div>
+        <ul>
+          <li>A smart billing system that uses computer vision to detect products and check customers out automatically.</li>
+          <li>Real-time recognition pipeline with OpenCV and Flask, doubling billing efficiency.</li>
+          <li>MySQL transaction logging and modular APIs, ready for scalable deployment and analytics.</li>
+        </ul>
+        <div class="chips"><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">Flask</span><span class="chip">MySQL</span></div>
+      </div><div class="big"><strong>80%</strong><span>shorter average checkout time</span></div></div>
+    </details>
+    <details class="card">
+      <summary><div><h3>EduGuard</h3><p>Early warning system for student dropouts</p></div><span class="plus">+</span></summary>
+      <div class="body"><div>
+        <ul>
+          <li>A full-stack platform that predicts which students are at risk of dropping out.</li>
+          <li>Triggers parental alerts, messages and personalised learning modules.</li>
+          <li>Live progress tracking and visual analytics built with Chart.js.</li>
+        </ul>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Flask</span><span class="chip">MySQL</span><span class="chip">JavaScript</span><span class="chip">Chart.js</span></div>
+      </div><div class="big"><strong>85%</strong><span>retention prediction accuracy, with 60% higher engagement</span></div></div>
+    </details>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <p class="tag">[03] Skills and expertise</p>
+  <h2>My toolbox</h2>
+  <p class="sub">The technologies I use to turn ideas into working products.</p>
+  <div class="tiers">
+    <div class="tier"><small>Strongest</small><h3>Full-stack development</h3><p>Interfaces, APIs and real-time features.</p><div class="chips"><span class="chip">React.js</span><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">REST APIs</span><span class="chip">Tailwind CSS</span><span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span></div></div>
+    <div class="tier"><small>Strongest</small><h3>AI and GenAI</h3><p>Putting models to work inside products.</p><div class="chips"><span class="chip">OpenAI API</span><span class="chip">AI search</span><span class="chip">Recommendations</span><span class="chip">OpenCV</span><span class="chip">AI/ML</span><span class="chip">Python</span></div></div>
+    <div class="tier"><small>Hands-on</small><h3>Data and tools</h3><p>Storing, shipping and testing.</p><div class="chips"><span class="chip">MySQL</span><span class="chip">MongoDB</span><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Postman</span><span class="chip">JWT</span><span class="chip">Socket.IO</span><span class="chip">Flask</span></div></div>
+    <div class="tier"><small>Solid foundation</small><h3>CS fundamentals</h3><p>The theory behind clean code.</p><div class="chips"><span class="chip">Java</span><span class="chip">OOP</span><span class="chip">Operating Systems</span><span class="chip">Computer Networks</span><span class="chip">System Design</span><span class="chip">Software Engineering</span></div></div>
+  </div>
+</div></section>
+
+<section id="journey"><div class="wrap">
+  <p class="tag">[04] My journey</p>
+  <h2>How I got here</h2>
+  <p class="sub">The milestones so far, newest first.</p>
+  <div class="path">
+    <div class="step"><h3>Associate Intern, Full Stack Developer</h3><div class="when">Zapcom Solutions · Jan 2026 – Jul 2026</div><p>Worked on RideAway, a live AI-powered car rental platform.</p></div>
+    <div class="step"><h3>B.Tech in Information Technology, graduated</h3><div class="when">Vasavi College of Engineering · 2022 – 2026</div><p>Finished with a 9.44/10 GPA and the VCE Merit Award for academic performance (2022–23).</p></div>
+    <div class="step"><h3>Selected for MSME Innovation Challenge and Smart India Hackathon</h3><div class="when">Nov 2024</div><p>Chosen at the college level for both, as one of the top teams.</p></div>
+    <div class="step"><h3>Finalist, Tech Savishkaar Hackathon</h3><div class="when">Mar 2024</div><p>Reached the finals of a national-level innovation hackathon.</p></div>
+    <div class="step"><h3>Certifications</h3><div class="when">2023 – 2024</div><p>NPTEL “Joy of Computing Using Python” with Elite + Silver grade (Oct 2023), and the DevGym Oracle certificate (Apr 2024).</p></div>
+    <div class="step"><h3>Intermediate (MPC), State rank 3rd and 4th</h3><div class="when">Alphores Junior College · 2020 – 2022</div><p>Scored 465/470 in year 1 and 991/1000 in year 2, finishing with 99.1%.</p></div>
+  </div>
+</div></section>
+</main>
+
+<footer class="contact" id="contact"><div class="wrap">
+  <p class="tag">[05] Get in touch</p>
+  <h2>Got a role or an idea? Drop a “Hi”.</h2>
+  <p class="sub">I’m looking for full-time software and full-stack roles. Email is the quickest way to reach me.</p>
+  <div class="cta">
+    <button class="btn pri" id="copy" type="button">Copy my email</button>
+    <a class="btn" href="mailto:abushisrinidhi@gmail.com">Open mail app</a>
+    <a class="btn" href="https://www.linkedin.com/in/abushi-srinidhi2005" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn" href="https://github.com/abushisrinidhi11" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <div class="foot">abushisrinidhi@gmail.com · +91 74166 12005 · Hyderabad, Telangana<br>© 2026 Abushi Srinidhi</div>
+</div></footer>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  try{var t=localStorage.getItem("theme");if(t)root.setAttribute("data-theme",t)}catch(e){}
+  document.getElementById("theme").addEventListener("click",function(){
+    var cur=root.getAttribute("data-theme");
+    var dark=cur?cur==="dark":matchMedia("(prefers-color-scheme: dark)").matches;
+    var n=dark?"light":"dark";root.setAttribute("data-theme",n);
+    try{localStorage.setItem("theme",n)}catch(e){}
+  });
+  var words=["products","platforms","predictions","pipelines","experiences"],i=0,w=document.getElementById("word");
+  setInterval(function(){i=(i+1)%words.length;w.textContent=words[i]},2200);
+  var toast=document.getElementById("toast"),tm;
+  function say(m){toast.textContent=m;toast.classList.add("on");clearTimeout(tm);tm=setTimeout(function(){toast.classList.remove("on")},2200)}
+  document.getElementById("copy").addEventListener("click",function(){
+    var mail="abushisrinidhi@gmail.com";
+    try{navigator.clipboard.writeText(mail).then(function(){say("Email copied")},function(){say(mail)})}catch(e){say(mail)}
+  });
+  var band=document.querySelector(".band div");band.innerHTML+=band.innerHTML;
+})();
+</script>
+</body>
+</html>
